@@ -9,4 +9,5 @@
 [nanoGPT](https://github.com/karpathy/nanoGPT): GPT2, 좋은 셈플
 
 [GPT - Notebook](https://colab.research.google.com/drive/1JMLa53HDuA-i7ZBmqV7ZnA3c_fvtXnx-?usp=sharing)
+
 [nanogpt-lecture](https://github.com/karpathy/ng-video-lecture): 상기 동영상과 연결
