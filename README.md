@@ -16,6 +16,11 @@ For Node.js
 npm install openai
 ```
 
+### List models
+
+[List models](https://platform.openai.com/docs/api-reference/models/list)
+
+
 ```java
 curl https://api.openai.com/v1/models \
   -H 'Authorization: Bearer YOUR_API_KEY' \
