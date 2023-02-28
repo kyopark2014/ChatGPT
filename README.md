@@ -1,6 +1,6 @@
 # ChatGPT
 
-## Open API
+## Open API Guide
 
 아래와 같이 필요한 라이브러리를 설치합니다. 
 
@@ -40,7 +40,7 @@ curl https://api.openai.com/v1/completions \
 
 #### Code로 요청시 
 
-Example with the [openai Node.js package](https://platform.openai.com/docs/api-reference/requesting-organization)
+Example with the [openai Node.js package](https://platform.openai.com/docs/api-reference/requesting-organization)에서 상세한 정보를 확인할 수 있습니다.
 
 for Python
 
