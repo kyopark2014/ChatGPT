@@ -1,5 +1,12 @@
 # ChatGPT
 
+```java
+curl https://api.openai.com/v1/completions \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer YOUR_API_KEY" \
+-d '{"model": "text-davinci-003", "prompt": "Say this is a test", "temperature": 0, "max_tokens": 7}'
+```
+
 
 ## Reference 
 [Open-AI: API keys](https://platform.openai.com/account/api-keys)
