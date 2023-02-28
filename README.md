@@ -1,10 +1,59 @@
 # ChatGPT
 
+## Open API
+
+Install Library
+
+For Python
+
+```java
+pip install openai
+```
+
+For Node.js
+
+```java
+npm install openai
+```
+
+```java
+curl https://api.openai.com/v1/models \
+  -H 'Authorization: Bearer YOUR_API_KEY' \
+  -H 'OpenAI-Organization: org-ZWy3HyPztSeGQHR7WH8XbZEJ'
+```  
+
+
+
+
 ```java
 curl https://api.openai.com/v1/completions \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer YOUR_API_KEY" \
 -d '{"model": "text-davinci-003", "prompt": "Say this is a test", "temperature": 0, "max_tokens": 7}'
+```
+
+Example with the [openai Node.js package](https://platform.openai.com/docs/api-reference/requesting-organization)
+
+for Python
+
+```python
+import os
+import openai
+openai.organization = "org-ZWy3HyPztSeGQHR7WH8XbZEJ"
+openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.Model.list()
+```
+
+for Node.js
+
+```java
+import { Configuration, OpenAIApi } from "openai";
+const configuration = new Configuration({
+    organization: "org-ZWy3HyPztSeGQHR7WH8XbZEJ",
+    apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
+const response = await openai.listEngines();
 ```
 
 
