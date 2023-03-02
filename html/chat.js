@@ -9,12 +9,6 @@ const newParticipant = document.querySelector('#refer');  // To input callee num
 
 const chatPanel = document.querySelector('#chatPanel');
 
-// To-Do: uname and uid need to get from the index.html for security
-var uname = 'john'; // set userID if exists 
-var uid = '1234'
-
-var callee = -1;  // current conversation partner
-
 HashMap = function() {
     this.map = new Array();
 };
@@ -47,14 +41,6 @@ HashMap.prototype = {
     }
 };
 
-// call log list
-var maxListItems = 20;
-var list = [];  
-for (i=0;i<maxListItems;i++) {
-    list.push(document.getElementById('callLog'+i));
-}
-var index = 0;    // # of call log lists
-
 // message log list
 var msglist = [];
 var msglistparam = [];
@@ -63,8 +49,9 @@ var msgIDX = new HashMap();
 
 // eventbase: To-Do: it will replated to indexed eventbase
 var msgHistory = new HashMap();
+var callee = "John";
 
-
+/*
 for (i=0;i<maxMsgItems;i++) {
     msglist.push(document.getElementById('msgLog'+i));
 
@@ -72,23 +59,13 @@ for (i=0;i<maxMsgItems;i++) {
     (function(index) {
         msglist[index].addEventListener("click", function() {
             console.log('click! index: '+index);
-
-            console.log("index=",index+' readcount:', callLog[i].readCount + ' body:', callLog[i].msg.Body+ ' status:',callLog[i].status);
         })
     })(i);
 }
 
-members = loadProfiles();
-memberSize = 0;
-
-assignNewCallLog(callee);  // make a call log for callee
-
-
-
 // initialize 
 setConveration(callee);
-updateChatWindow(callee);
-
+updateChatWindow(callee); */
 
 function StartNewChat(participantList) {
     console.log('The earn participant list; '+participantList);
@@ -102,8 +79,6 @@ function StartNewChat(participantList) {
     setConveration(callee);
     updateChatWindow(callee);
 }
-
-
 
 // Listeners
 message.addEventListener('keyup', function(e){
@@ -145,7 +120,7 @@ function onSend(e) {
     //    console.log(msgJSON);
     
 
-        console.log('<-- sent: '+log.msg.MsgID+' To:'+log.msg.To + ' listIDX:', callLog.length-1+' ' + log.msg.Body);
+        console.log('<-- sent: '+log.msg.MsgID+' To:'+log.msg.To +' ' + log.msg.Body);
         
         msgIDX.put(chatmsg.MsgID, callLog.length - 1)
                
