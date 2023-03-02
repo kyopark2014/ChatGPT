@@ -1,6 +1,3 @@
-// const aws = require('aws-sdk');
-// import * as aws from 'aws-cdk';
-
 import { Configuration, OpenAIApi } from "openai";
 
 const configuration = new Configuration({
@@ -9,7 +6,6 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
-//exports.handler = async (event, context) => {
 export const handler = async (event) => {  
   console.log('## ENVIRONMENT VARIABLES: ' + JSON.stringify(process.env));
   console.log('## EVENT: ' + JSON.stringify(event));
@@ -21,7 +17,8 @@ export const handler = async (event) => {
   const temperature = 0;
   const top_p = 1;
   const model_name = models[0];
-  const prompt = "who are you?";
+  const prompt = event.text;
+  console.log('prompt: ' + prompt);
 
   let isCompleted = false;    
   let response;

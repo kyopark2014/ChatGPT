@@ -8,7 +8,6 @@ import * as origins from 'aws-cdk-lib/aws-cloudfront-origins';
 import * as iam from 'aws-cdk-lib/aws-iam';
 import * as apiGateway from 'aws-cdk-lib/aws-apigateway';
 import * as s3Deploy from "aws-cdk-lib/aws-s3-deployment";
-import * as logs from "aws-cdk-lib/aws-logs"
 
 const debug = false;
 const stage = 'dev';
@@ -66,9 +65,9 @@ export class CdkChatStack extends cdk.Stack {
     // Lambda for stable diffusion 
     const lambdachat = new lambda.Function(this, 'lambda-chat', {
       description: 'lambda for chat',
-      functionName: 'lambda-chatgpt',
-      handler: 'lambda_function.lambda_handler',
-      runtime: lambda.Runtime.PYTHON_3_9,
+      functionName: 'lambda-chat',
+      handler: 'index.handler',
+      runtime: lambda.Runtime.NODEJS_18_X,
       code: lambda.Code.fromAsset(path.join(__dirname, '../../lambda-chat')),
       timeout: cdk.Duration.seconds(120),
       environment: {
