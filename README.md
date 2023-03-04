@@ -60,7 +60,9 @@ cdk deploy
 
 #### 한국어 
 
-![image](https://user-images.githubusercontent.com/52392004/222921046-851442ab-51ad-49c8-95af-1357e9133bbb.png)
+![noname](https://user-images.githubusercontent.com/52392004/222921154-c9941cdd-69c2-4a32-88d3-3e21dade2764.png)
+
+
 
 #### 영어 
 
