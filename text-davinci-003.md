@@ -14,12 +14,6 @@ Model: The ChatGPT model family we are releasing today, gpt-3.5-turbo, is the sa
 Support for the official ChatGPT model has been added! You can now use the gpt-3.5-turbo model with the official OpenAI API, using ChatGPTClient. This is the same model that ChatGPT uses, and it's the most powerful model available right now. Usage of this model is not free, however it is 10x cheaper (priced at $0.002 per 1k tokens) than text-davinci-003.
 ```
 
-### Create completion
-
-[Create completion](https://platform.openai.com/docs/api-reference/completions/create)을 이용하여 OpenAI API를 호출합니다. 여기서 사용한 
-[OpenAI Node.js Library](https://github.com/openai/openai-node)은 "text-davinci-003"인데, 
-
-
 #### Curl 사용시 
 ```java
 curl https://api.openai.com/v1/completions \
@@ -27,6 +21,42 @@ curl https://api.openai.com/v1/completions \
 -H "Authorization: Bearer YOUR_API_KEY" \
 -d '{"model": "text-davinci-003", "prompt": "Say this is a test", "temperature": 0, "max_tokens": 7}'
 ```
+
+
+## Open API 라이브러리 설치
+
+아래와 같이 필요한 라이브러리를 설치합니다. 
+
+For Python
+
+```java
+pip install openai
+```
+
+For Node.js
+
+```java
+npm install openai
+```
+
+### List models
+
+[List models](https://platform.openai.com/docs/api-reference/models/list)을 통해 사용할 수 있는 모델을 확인합니다. 아래 API 호출시 내용이 너무 많으므로 [model.txt](https://github.com/kyopark2014/ChatGPT/blob/main/model.txt)에서 현재 사용할 수 있는 모델을 확인할 수 있습니다. 
+
+```java
+curl https://api.openai.com/v1/models \
+  -H 'Authorization: Bearer YOUR_API_KEY' \
+  -H 'OpenAI-Organization: org-ZWy3HyPztSeGQHR7WH8XbZEJ'
+```  
+
+## 코드로 구현
+
+### Create Completion
+
+[Create completion](https://platform.openai.com/docs/api-reference/completions/create)을 이용하여 OpenAI API를 호출합니다. 여기서 사용한 
+[OpenAI Node.js Library](https://github.com/openai/openai-node)은 "text-davinci-003"입니다. 
+
+구현된 코드는 [index.mjs](https://github.com/kyopark2014/ChatGPT/blob/main/etc/text-davinci-003/index.mjs)입니다.
 
 #### Code로 요청시 
 
@@ -66,3 +96,7 @@ const response = await openai.listEngines();
 - presence_penalty: Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.
 
 ## Reference
+
+[Introducing ChatGPT and Whisper APIs](https://openai.com/blog/introducing-chatgpt-and-whisper-apis)
+
+[OpenAI Node.js Library](https://github.com/openai/openai-node)
