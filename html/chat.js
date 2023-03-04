@@ -62,17 +62,16 @@ for (i=0;i<maxMsgItems;i++) {
     })(i);
 }
 
-   
-// initialize 
-//setConveration(callee);
-//updateChatWindow(callee); 
-
 calleeName.textContent = "ChatGPT";  
 calleeId.textContent = "OpenAI";
 
 index = 0;
 
-addNotifyMessage("start the interractive chat")
+addNotifyMessage("start the interractive chat");
+
+addReceivedMessage("How are your?");
+addReceivedMessage("How are your?");
+addReceivedMessage("How are your?");
 
 // Listeners
 message.addEventListener('keyup', function(e){
@@ -137,8 +136,8 @@ function addReceivedMessage(msg) {
     var timestr = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
     index++;
 
-    msglist[index].innerHTML =  
-        `<div class="chat-receiver chat-receiver--left"><h1>${sender}</h1><h2>${timestr}</h2>${msg}&nbsp;</div>`;     
+    // msglist[index].innerHTML =  `<div class="chat-receiver chat-receiver--left"><h1>${sender}</h1><h2>${timestr}</h2>${msg}&nbsp;</div>`;     
+    msglist[index].innerHTML = `<div class="chat-receiver chat-receiver--left"><h1>${sender}</h1>${msg}&nbsp;</div>`;  
 }
 
 function addNotifyMessage(msg) {

@@ -257,12 +257,12 @@ body {
 }
 
 .chat-receiver {
-  margin-top :1.5em;
-  margin-left:25px;
+  margin-top :2.0em;
+  margin-left:20px;
   margin-right:35%;  /* receiver bubble width */
   margin-bottom:0.5em;
     
-  padding: 10px 14px;
+  padding: 12px 14px; 
   background: #ddd; 
   /* margin: 10px 30px; */
   border-radius: 9px;
@@ -293,7 +293,7 @@ body {
   margin-right: -20px;
 }
 .chat-receiver h1 {
-  margin-top:-2.8em;  /* the position of time string */
+  margin-top:-3.0em;  /* the position of time string */
   margin-left:-1em;
   color: black;
   font-size: 0.7em;

@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "openai": "^3.2.1"
+    "node-fetch": "^3.3.0"
   }
 }
