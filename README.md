@@ -19,6 +19,44 @@ curl https://api.openai.com/v1/chat/completions \
 ```
 
 
+## Deployment
+
+소스를 다운로드 합니다. 
+
+```java
+git clone https://github.com/kyopark2014/ChatGPT
+```
+
+cdk 폴더로 이동하여 관련된 라이브러리를 설치합니다.
+
+```java
+cd ChatGPT/cdk-chat && npm install aws-cdk-lib path
+```
+
+"cdk-chat/lib/cdk-chat-stack.ts"파일에서 environment의 "OPENAI_API_KEY"를 업데이트 합니다. 처음 사용하는 경우에는 [OPENAI_API_KEY](https://platform.openai.com/account/api-keys)에서 API Key를 발급 받습니다.
+
+![image](https://user-images.githubusercontent.com/52392004/222920578-c9e2855e-cdad-4fe9-9985-9195d89e8451.png)
+
+아래와 같이 설치합니다.
+
+```java
+cdk deploy
+```
+
+## 실행결과
+
+[index.mjs](https://github.com/kyopark2014/ChatGPT/blob/main/lambda-chat/index.mjs)와 같이 구현한 결과는 아래와 같습니다. 
+
+아래와 같은 Output이 생성됩니다.
+
+![image](https://user-images.githubusercontent.com/52392004/222920252-33c5b065-dadc-45a5-a167-9394ff1436eb.png)
+
+여기서 접속하는 Web URL은 "https://dre57i7noiw1a.cloudfront.net/chat.html"입니다. 접속후 아래와 같인 chatting을 수행할 수 있습니다.
+
+![image](https://user-images.githubusercontent.com/52392004/222920412-3d2a7753-1d54-4e19-83e2-11403374ca78.png)
+
+
+
 
 ## Reference 
 
