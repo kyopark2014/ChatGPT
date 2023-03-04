@@ -58,6 +58,9 @@ cdk deploy
 
 여기서 접속하는 Web URL은 "https://dre57i7noiw1a.cloudfront.net/chat.html" 입니다. 접속후 아래와 같인 chatting을 수행할 수 있습니다.
 
+![image](https://user-images.githubusercontent.com/52392004/222921046-851442ab-51ad-49c8-95af-1357e9133bbb.png)
+
+
 ![image](https://user-images.githubusercontent.com/52392004/222920699-78fdff76-9a3f-400d-b22e-4d15016796a1.png)
 
 
