@@ -96,4 +96,4 @@ const response = await openai.listEngines();
 
 [nanogpt-lecture](https://github.com/karpathy/ng-video-lecture): 상기 동영상과 연결
 
-
+[Introducing ChatGPT and Whisper APIs](https://openai.com/blog/introducing-chatgpt-and-whisper-apis)
