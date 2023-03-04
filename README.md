@@ -1,8 +1,23 @@
 # ChatGPT
 
-
-
 [Introducing ChatGPT and Whisper APIs](https://openai.com/blog/introducing-chatgpt-and-whisper-apis)와 같이 2023.3.1부터 공식직으로 "gpt-3.5-turbo"이 지원됨으로해서 ["text-davinci-003" 모델](https://github.com/kyopark2014/ChatGPT/blob/main/text-davinci-003.md)을 대체하게 되었습니다. 
+
+## API
+
+ChatGPT를 curl이용해 호출시 아래와 같은 결과를 얻을 수 있습니다. 
+
+```java
+curl https://api.openai.com/v1/chat/completions \
+ -H "Authorization: Bearer sample-1234N6dQac0enXfPpCT3BlbkFJY4UE9yXdow54a78m2775" \
+ -H "Content-Type: application/json" \
+ -d '{
+ "model": "gpt-3.5-turbo",
+ "messages": [{"role": "user", "content": "What is the OpenAI mission?"}]
+ }'
+
+{"id":"chatcmpl-6qOKjDawBvE42BGRHZhztnnkeTgwh","object":"chat.completion","created":1677944613,"model":"gpt-3.5-turbo-0301","usage":{"prompt_tokens":14,"completion_tokens":80,"total_tokens":94},"choices":[{"message":{"role":"assistant","content":"\n\nAs an AI language model, I do not have a personal mission. However, OpenAI’s mission is to ensure that artificial intelligence benefits humanity as a whole. They aim to achieve this by researching and developing AI technologies that are safe, transparent, and aligned with human values. They also aim to share their research and findings with the broader community to encourage open and collaborative progress in AI research."},"finish_reason":null,"index":0}]}
+```
+
 
 
 ## Reference 
