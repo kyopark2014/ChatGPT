@@ -132,7 +132,7 @@ function addSentMessage(text) {
 
 function addReceivedMessage(msg) {
     // console.log("add received message: "+msg);
-    sender = "chatgpt"
+    sender = "ChatGPT"
     var date = new Date();
     var timestr = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
     index++;
