@@ -69,10 +69,6 @@ index = 0;
 
 addNotifyMessage("start the interractive chat");
 
-addReceivedMessage("How are your?");
-addReceivedMessage("How are your?");
-addReceivedMessage("How are your?");
-
 // Listeners
 message.addEventListener('keyup', function(e){
     if (e.keyCode == 13) {
