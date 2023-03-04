@@ -1,26 +1,25 @@
 body {
     /* background-image: : url('https://image... '); */
-    background-color: #3498db;
+    background-color: #3498db;   
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    
+    text-rendering: optimizeLegibility;    
   }
   
   .container {
     max-height: 800px; /* added for height */
-    margin: 50px auto;  
+    max-width: 900px; 
+    margin: 30px auto;  /* top margin of chat room */
     background: #fff;
     padding: 0;
-    border-radius: 7px;
+    border-radius: 7px; 
   }
 
   .profile-image {
     width: 50px;
     height: 50px;
     border-radius: 40px;
-  }
-  
+  }  
   .settings-tray {
     background: #eee; 
     padding: 10px 15px;
@@ -58,21 +57,7 @@ body {
     color: #74b9ff;
     cursor: pointer;
   }  
-  
-  .search-box {
-    background: #fafafa;
-    padding: 10px 13px;
-  }
-  .search-box .input-wrapper {
-    background: #fff;
-    border-radius: 40px;
-  }
-  .search-box .input-wrapper i {
-    color: grey;
-    margin-left: 7px;
-    vertical-align: middle;
-  }
-  
+    
   input {
     border: none;
     border-radius: 30px;
@@ -94,7 +79,6 @@ body {
     max-height: 100%;  
     overflow: auto;
   }
-
   .friend-drawer {
     padding: 10px 15px;
     display: flex;
@@ -275,7 +259,7 @@ body {
 .chat-receiver {
   margin-top :1.5em;
   margin-left:25px;
-  margin-right:70%;
+  margin-right:35%;  /* receiver bubble width */
   margin-bottom:0.5em;
     
   padding: 10px 14px;
@@ -325,10 +309,10 @@ body {
 
 .chat-sender {
   margin-top :1.5em;
-  margin-left:70%;
+  margin-left:35%;  /* sender bubble width */
   margin-right:30px;
   margin-bottom:0.5em;
-  padding: 10px 14px;
+  padding: 15px 14px;
   background: #74b9ff; 
   color: #fff;
   border-radius: 9px;
@@ -355,7 +339,7 @@ body {
 } 
 
 .chat-sender h1 {
-  margin-top:-2.1em;
+  margin-top:-2.8em;  /* the position of time string */
   margin-left:-1em;
   color: black;
   font-size: 0.7em;

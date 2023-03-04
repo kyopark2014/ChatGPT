@@ -43,42 +43,36 @@ HashMap.prototype = {
 
 // message log list
 var msglist = [];
-var msglistparam = [];
 var maxMsgItems = 50;
-var msgIDX = new HashMap();
-
-// eventbase: To-Do: it will replated to indexed eventbase
 var msgHistory = new HashMap();
 var callee = "John";
+var index=0;
 
-/*
 for (i=0;i<maxMsgItems;i++) {
     msglist.push(document.getElementById('msgLog'+i));
 
     // add listener        
     (function(index) {
         msglist[index].addEventListener("click", function() {
+            if(msglist.length < maxMsgItems) i = index;
+            else i = index + maxMsgItems;
+
             console.log('click! index: '+index);
         })
     })(i);
 }
 
+   
 // initialize 
-setConveration(callee);
-updateChatWindow(callee); */
+//setConveration(callee);
+//updateChatWindow(callee); 
 
-function StartNewChat(participantList) {
-    console.log('The earn participant list; '+participantList);
+calleeName.textContent = "ChatGPT";  
+calleeId.textContent = "OpenAI";
 
-    callee = 'john';
+index = 0;
 
-    if(!msgHistory.get(callee)) {
-        assignNewCallLog(callee);
-    }
-    
-    setConveration(callee);
-    updateChatWindow(callee);
-}
+addNotifyMessage("start the interractive chat")
 
 // Listeners
 message.addEventListener('keyup', function(e){
@@ -93,41 +87,19 @@ refreshChatWindow.addEventListener('click', function(){
 });
 
 sendBtn.addEventListener('click', onSend);
-
 function onSend(e) {
     e.preventDefault();
-
+    
     if(message.value != '') {
-        var date = new Date();
-        var timestamp = Math.floor(date.getTime()/1000);
-
-        var From, Originaterd;
-        
-        From = uid;
-        Originaterd = '';
-            
-        const chatmsg = {
-            EvtType: "message",
-            From: From,
-            Originated: Originaterd,
-            To: callee,
-            MsgID: uuidv4(),
-            Timestamp: timestamp,
-            Body: message.value
-        };
-
-        const msgJSON = JSON.stringify(chatmsg);
-    //    console.log(msgJSON);
-    
-
-        console.log('<-- sent: '+log.msg.MsgID+' To:'+log.msg.To +' ' + log.msg.Body);
-        
-        msgIDX.put(chatmsg.MsgID, callLog.length - 1)
-               
-        updateChatWindow(callee);
+        console.log("msg: ", message.value);
+        addSentMessage(message.value);
     }
-    
+    else {
+        console.log("msg: ", "empty!");
+    }    
     message.value = "";
+
+    chatPanel.scrollTop = chatPanel.scrollHeight;  // scroll needs to move bottom
 }
 
 function uuidv4() {
@@ -135,7 +107,6 @@ function uuidv4() {
       (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
     );
 }
-
 
 (function() {
     window.addEventListener("focus", function() {
@@ -146,78 +117,68 @@ function uuidv4() {
     })
 })();
 
+function addSentMessage(text) {
+    console.log("sent message: "+text);
 
-
-function addSentMessage(index,timestr,text,status) {
-//    console.log("sent message:"+text+' status='+status + ' readcount=',readCount);
+    var date = new Date();
+    var timestr = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+    index++;
 
     msglist[index].innerHTML = 
         `<div class="chat-sender chat-sender--right"><h1>${timestr}</h1>${text}&nbsp;<h2 id="status${index}"></h2></div>`;   
-       // To-Do In orter to manager that all characters are blank, inserted a blank but I will fix it later.
-       
-    msglistparam[index] = document.getElementById('status'+index);
-    
-    if(status==0) {
-        msglistparam[index].textContent = '\u00A0';
-    } 
-    else if(status==1 || status==2) {
-       if(readCount == 0)
-            msglistparam[index].textContent = '\u00A0'; 
-        else
-            msglistparam[index].textContent = readCount; 
-    }
-}
 
-function addReceivedMessage(index, sender, timestr, msg) {
-//    console.log("add received message: "+msg);
+    sendRequest(text);    
+}       
+
+function addReceivedMessage(msg) {
+    // console.log("add received message: "+msg);
+    sender = "chatgpt"
+    var date = new Date();
+    var timestr = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+    index++;
 
     msglist[index].innerHTML =  
-    `<div class="chat-receiver chat-receiver--left"><h1>${sender}</h1><h2>${timestr}</h2>${msg}&nbsp;</div>`;     
-
-//    console.log(msglist[index].innerHTML);   
+        `<div class="chat-receiver chat-receiver--left"><h1>${sender}</h1><h2>${timestr}</h2>${msg}&nbsp;</div>`;     
 }
 
-function addNotifyMessage(index, msg) {
+function addNotifyMessage(msg) {
+    index++;
+
     msglist[index].innerHTML =  
         `<div class="notification-text">${msg}</div>`;     
 }
-    
-function updateChatWindow(from) {
-    // clear chat window
-    for (i=0;i<maxMsgItems;i++) {
-        msglist[i].innerHTML = '';
-    }
 
-    callee = from;
+refreshChatWindow.addEventListener('click', function(){
+    console.log('update chat window');
+    // updateChatWindow(callee);
+});
 
-    // load callLog
-    callLog = msgHistory.get(from);
+attachFile.addEventListener('click', function(){
+    console.log('click: attachFile');
+    // var input = $(document.createElement('input')); 
+    // input.attr("type", "file");
+    // input.trigger('click');
+    // return false;
+});
 
-    // shows maxMsgItems messages based on arrived order    
-    if(callLog.length < maxMsgItems) start = 0;
-    else start = callLog.length - maxMsgItems;
+function sendRequest(text) {
+    const uri = "https://dre57i7noiw1a.cloudfront.net/chat";
+    const xhr = new XMLHttpRequest();
 
-    for(i=start;i<callLog.length;i++) {
-    //    console.log("i: ",i + " start: ",start + ' i-start:' + (i-start));
-
-        var date = new Date(callLog[i].msg.Timestamp * 1000);            
-        var timestr = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
-
-        if(callLog[i].logType == 1) { // send
-        //    console.log('i= ',i,' Text: ',callLog[i].msg.Body,' readcount: ',callLog[i].readCount)
-            addSentMessage(i-start,timestr,callLog[i].msg.Body,callLog[i].status,callLog[i].readCount);
+    xhr.open("POST", uri, true);
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            response = JSON.parse(xhr.responseText);
+            console.log("response: " + JSON.stringify(response));
+            
+            addReceivedMessage(response.msg)
         }
-        else if(callLog[i].logType == 0)  {  // receive
-            if(callLog[i].msg.From[0] == 'g')
-                addReceivedMessage(i-start,members.get(callLog[i].msg.Originated),timestr,callLog[i].msg.Body);  
-            else
-                addReceivedMessage(i-start,members.get(callLog[i].msg.From),timestr,callLog[i].msg.Body);
-        }
-        else if(callLog[i].logType == 2) {  // notify
-            addNotifyMessage(i-start, callLog[i].msg);
-        }
-    }
+    };
 
-    chatPanel.scrollTop = chatPanel.scrollHeight;  // scroll needs to move bottom
+    var requestObj = {"text":text}
+    console.log("request: " + JSON.stringify(requestObj));
+
+    var blob = new Blob([JSON.stringify(requestObj)], {type: 'application/json'});
+
+    xhr.send(blob);            
 }
-
