@@ -26,9 +26,15 @@ curl https://api.openai.com/v1/models \
   -H 'OpenAI-Organization: org-ZWy3HyPztSeGQHR7WH8XbZEJ'
 ```  
 
+
+## model: "text-davinci-0
+
+[Introducing ChatGPT and Whisper APIs](https://openai.com/blog/introducing-chatgpt-and-whisper-apis) 2023.3.1부터 공식직으로 "gpt-3.5-turbo"
 ### Create completion
 
-[Create completion](https://platform.openai.com/docs/api-reference/completions/create)을 이용하여 OpenAI API를 호출합니다.
+[Create completion](https://platform.openai.com/docs/api-reference/completions/create)을 이용하여 OpenAI API를 호출합니다. 여기서 사용한 
+[OpenAI Node.js Library](https://github.com/openai/openai-node)은 "text-davinci-003"인데, 
+
 
 #### Curl 사용시 
 ```java
@@ -97,3 +103,5 @@ const response = await openai.listEngines();
 [nanogpt-lecture](https://github.com/karpathy/ng-video-lecture): 상기 동영상과 연결
 
 [Introducing ChatGPT and Whisper APIs](https://openai.com/blog/introducing-chatgpt-and-whisper-apis)
+
+[OpenAI Node.js Library](https://github.com/openai/openai-node)
