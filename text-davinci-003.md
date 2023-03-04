@@ -1,6 +1,6 @@
 # text-davinci-003 모델
 
-## model: "text-davinci-003" 모델 
+## "text-davinci-003" 모델 
 
 [Introducing ChatGPT and Whisper APIs](https://openai.com/blog/introducing-chatgpt-and-whisper-apis)와 같이 2023.3.1부터 공식직으로 "gpt-3.5-turbo"이 지원됨으로해서 "text-davinci-003"을 대체하게 되었습니다. "gpt-3.5-turbo"와 "text-davinci-003"은 거의 같은 성능을 가지나 훨씬 더 저렴하게 사용할 수 있습니다.
 
