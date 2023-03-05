@@ -106,8 +106,8 @@ export class CdkChatStack extends cdk.Stack {
     });  
 
     // POST method
-    const text2image = api.root.addResource('chat');
-    text2image.addMethod('POST', new apiGateway.LambdaIntegration(lambdachat, {
+    const chat = api.root.addResource('chat');
+    chat.addMethod('POST', new apiGateway.LambdaIntegration(lambdachat, {
       passthroughBehavior: apiGateway.PassthroughBehavior.WHEN_NO_TEMPLATES,
       credentialsRole: role,
       integrationResponses: [{
