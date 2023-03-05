@@ -39,9 +39,9 @@ cd ChatGPT/cdk-chat && npm install aws-cdk-lib path
 
 "cdk-chat/lib/cdk-chat-stack.ts"파일에서 environment의 "OPENAI_API_KEY"를 업데이트 합니다. 처음 사용하는 경우에는 [OPENAI_API_KEY](https://platform.openai.com/account/api-keys)에서 API Key를 발급 받습니다.
 
-![image](https://user-images.githubusercontent.com/52392004/222920578-c9e2855e-cdad-4fe9-9985-9195d89e8451.png)
+![noname](https://user-images.githubusercontent.com/52392004/222936716-4f77bf71-9217-40af-a5dd-400e781d36d2.png)
 
-아래와 같이 설치합니다.
+이후, 아래와 같이 설치합니다.
 
 ```java
 cdk deploy
