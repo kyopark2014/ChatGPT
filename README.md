@@ -59,33 +59,9 @@ if (res.ok) {
 }
 ```
 
-## Deployment
-
-소스를 다운로드 합니다. 
-
-```java
-git clone https://github.com/kyopark2014/ChatGPT
-```
-
-cdk 폴더로 이동하여 관련된 라이브러리를 설치합니다.
-
-```java
-cd ChatGPT/cdk-chat && npm install aws-cdk-lib path
-```
-
-"cdk-chat/lib/cdk-chat-stack.ts"파일에서 environment의 "OPENAI_API_KEY"를 업데이트 합니다. 처음 사용하는 경우에는 [OPENAI_API_KEY](https://platform.openai.com/account/api-keys)에서 API Key를 발급 받습니다.
-
-![noname](https://user-images.githubusercontent.com/52392004/222936716-4f77bf71-9217-40af-a5dd-400e781d36d2.png)
-
-이후, 아래와 같이 설치합니다.
-
-```java
-cdk deploy
-```
-
 ### Client에서 Chat API 활용하기
 
-여기에서는 javascript로 Chat 서버에 RESTful 방식으로 아래와 같이 채팅 메시지를 전송합니다. 여기서 채팅서버의 주소는 CloudFront의 도메인입니다. 
+[chat.js](https://github.com/kyopark2014/ChatGPT/blob/main/html/chat.js)와 같이 Client는 Chat 서버에 RESTful 방식으로 아래와 같이 채팅 메시지를 전송하고 응답이 오면 수신 채팅 버블에 표시 합니다. 여기서 채팅서버의 주소는 CloudFront의 도메인입니다. 
 
 ```java
 function sendRequest(text) {
@@ -110,6 +86,31 @@ function sendRequest(text) {
     xhr.send(blob);            
 }
 ```
+
+## Deployment
+
+소스를 다운로드 합니다. 
+
+```java
+git clone https://github.com/kyopark2014/ChatGPT
+```
+
+cdk 폴더로 이동하여 관련된 라이브러리를 설치합니다.
+
+```java
+cd ChatGPT/cdk-chat && npm install aws-cdk-lib path
+```
+
+"cdk-chat/lib/cdk-chat-stack.ts"파일에서 environment의 "OPENAI_API_KEY"를 업데이트 합니다. 처음 사용하는 경우에는 [OPENAI_API_KEY](https://platform.openai.com/account/api-keys)에서 API Key를 발급 받습니다.
+
+![noname](https://user-images.githubusercontent.com/52392004/222936716-4f77bf71-9217-40af-a5dd-400e781d36d2.png)
+
+이후, 아래와 같이 설치합니다.
+
+```java
+cdk deploy
+```
+
 
 
 ## 실행결과
