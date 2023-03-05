@@ -1,8 +1,6 @@
 # ChatGPT
 
-[Introducing ChatGPT and Whisper APIs](https://openai.com/blog/introducing-chatgpt-and-whisper-apis)와 같이 2023.3.1부터 "gpt-3.5-turbo"이 지원되었습니다. ["text-davinci-003" 모델](https://github.com/kyopark2014/ChatGPT/blob/main/text-davinci-003.md) 대비 90% 낮은 비용으로 사용할 수 있다고 합니다.
-
-여기서 구현한 Architecture는 아래와 같습니다. 사용자는 CloudFront로 Chat을 위한 Web page을 오픈합니다. 이후 채팅 메시지를 입력하면, API-Gateway와 Lambda을 통해 OpenAI의 ChatGPT API를 호출합니다. 
+[2023.3.1부터 ChatGPT를 위한 API](https://openai.com/blog/introducing-chatgpt-and-whisper-apis)가 공식적으로 "gpt-3.5-turbo"로 지원되고 있습니다. 이것은 ["text-davinci-003" 모델](https://github.com/kyopark2014/ChatGPT/blob/main/text-davinci-003.md) 대비 90% 낮은 비용으로 사용할 수 있지만, 채팅중에 검색과 같은 기능은 제공하지 않습니다. 여기서 구현한 Architecture는 아래와 같습니다. 사용자는 CloudFront로 Chat을 위한 Web page을 오픈합니다. 이후 채팅 메시지를 입력하면, API-Gateway와 Lambda을 통해 OpenAI의 ChatGPT API를 호출합니다. 
 
 <img width="519" alt="image" src="https://user-images.githubusercontent.com/52392004/222920792-95ea6da1-8632-4917-8060-dc845e5704ec.png">
 
