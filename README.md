@@ -97,4 +97,3 @@ cdk deploy
 
 [Introducing ChatGPT and Whisper APIs](https://openai.com/blog/introducing-chatgpt-and-whisper-apis)
 
-[OpenAI Node.js Library](https://github.com/openai/openai-node)
