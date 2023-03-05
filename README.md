@@ -21,7 +21,43 @@ curl https://api.openai.com/v1/chat/completions \
 {"id":"chatcmpl-6qOKjDawBvE42BGRHZhztnnkeTgwh","object":"chat.completion","created":1677944613,"model":"gpt-3.5-turbo-0301","usage":{"prompt_tokens":14,"completion_tokens":80,"total_tokens":94},"choices":[{"message":{"role":"assistant","content":"\n\nAs an AI language model, I do not have a personal mission. However, OpenAI’s mission is to ensure that artificial intelligence benefits humanity as a whole. They aim to achieve this by researching and developing AI technologies that are safe, transparent, and aligned with human values. They also aim to share their research and findings with the broader community to encourage open and collaborative progress in AI research."},"finish_reason":null,"index":0}]}
 ```
 
+### gpt-3.5-turbo 모델 사용하기
 
+OpenAI가 제공하는 ChatGPT API인 "v1/chat/completions"로 HTTPS POST로 요청을 수행합니다. 이를 위해 여기서는 fetch를 사용합니다. 이때 ChatGPT에 전달하는 요청의 header에는 아래와 같이 Authorization과 Content-Type을 포함하여야 합니다. Authorization에 필요한 API Key는 OpenAPI: API Key에서 발급받아서 환경변수로 저장하여 사용합니다. 메시지 요청시 role로 "user",
+
+```java
+import fetch from 'node-fetch';
+
+const apiKey = process.env.OPENAI_API_KEY
+
+let msg = "";
+const res = await fetch('https://api.openai.com/v1/chat/completions',{
+  method: "POST",
+  headers: {
+    "Authorization": "Bearer "+apiKey,
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    "model": "gpt-3.5-turbo",
+    "messages": [
+      {"role": "user", "content": prompt},
+    ],
+  }),
+});
+
+if (res.ok) {
+  const data = await res.json();
+  console.log("output: ", data.choices[0]);
+
+  msg = data.choices[0].message.content;
+  console.log("msg: "+ msg);
+      
+  return {
+    statusCode: 200,
+    msg: msg
+  };    
+}
+```
 
 ## Deployment
 
