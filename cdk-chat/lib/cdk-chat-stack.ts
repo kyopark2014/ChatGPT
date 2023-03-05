@@ -62,7 +62,7 @@ export class CdkChatStack extends cdk.Stack {
       description: 'The domain name of the Distribution',
     });
 
-    // Lambda for stable diffusion 
+    // Lambda for chatgpt
     const lambdachat = new lambda.Function(this, 'lambda-chat', {
       description: 'lambda for chat',
       functionName: 'lambda-chat',
