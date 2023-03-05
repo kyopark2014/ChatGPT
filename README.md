@@ -119,14 +119,15 @@ cdk deploy
 
 아래와 같은 Output이 생성됩니다.
 
-![image](https://user-images.githubusercontent.com/52392004/222920252-33c5b065-dadc-45a5-a167-9394ff1436eb.png)
+![noname](https://user-images.githubusercontent.com/52392004/222937589-a50115a3-68ad-4a97-81e4-c6a0310a45f3.png)
+
+
 
 여기서 접속하는 Web URL은 "https://dre57i7noiw1a.cloudfront.net/chat.html" 입니다. 접속후 아래와 같인 chatting을 수행할 수 있습니다.
 
 #### 한국어 
 
 ![noname](https://user-images.githubusercontent.com/52392004/222921154-c9941cdd-69c2-4a32-88d3-3e21dade2764.png)
-
 
 
 #### 영어 
