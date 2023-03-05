@@ -2,7 +2,7 @@
 
 ## "text-davinci-003" 모델 
 
-[Introducing ChatGPT and Whisper APIs](https://openai.com/blog/introducing-chatgpt-and-whisper-apis)와 같이 2023.3.1부터 공식직으로 "gpt-3.5-turbo"이 지원됨으로해서 "text-davinci-003"을 대체하게 되었습니다. "gpt-3.5-turbo"와 "text-davinci-003"은 거의 같은 성능을 가지나 훨씬 더 저렴하게 사용할 수 있습니다.
+"text-davinci-003"은 [OpenAI의 Completions](https://platform.openai.com/docs/api-reference/completions)에 따라 "v1/completions"로 호출하여 이용할 수 있습니다. "gpt-3.5-turbo"과 비교하여 검색이 가능합니다. 
 
 ```text
 Model: The ChatGPT model family we are releasing today, gpt-3.5-turbo, is the same model used in the ChatGPT product. It is priced at $0.002 per 1k tokens, which is 10x cheaper than our existing GPT-3.5 models. It’s also our best model for many non-chat use cases—we’ve seen early testers migrate from text-davinci-003 to gpt-3.5-turbo with only a small amount of adjustment needed to their prompts.
