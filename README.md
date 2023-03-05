@@ -83,6 +83,35 @@ cd ChatGPT/cdk-chat && npm install aws-cdk-lib path
 cdk deploy
 ```
 
+### Client에서 Chat API 활용하기
+
+여기에서는 javascript로 Chat 서버에 RESTful 방식으로 아래와 같이 채팅 메시지를 전송합니다. 여기서 채팅서버의 주소는 CloudFront의 도메인입니다. 
+
+```java
+function sendRequest(text) {
+    const uri = "https://dre57i7noiw1a.cloudfront.net/chat";
+    const xhr = new XMLHttpRequest();
+
+    xhr.open("POST", uri, true);
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            response = JSON.parse(xhr.responseText);
+            console.log("response: " + JSON.stringify(response));
+            
+            addReceivedMessage(response.msg)
+        }
+    };
+
+    var requestObj = {"text":text}
+    console.log("request: " + JSON.stringify(requestObj));
+
+    var blob = new Blob([JSON.stringify(requestObj)], {type: 'application/json'});
+
+    xhr.send(blob);            
+}
+```
+
+
 ## 실행결과
 
 [index.mjs](https://github.com/kyopark2014/ChatGPT/blob/main/lambda-chat/index.mjs)와 같이 구현한 결과는 아래와 같습니다. 
