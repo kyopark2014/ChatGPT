@@ -4,9 +4,6 @@ var host = 'localhost';
 const title = document.querySelector('#title');
 const sendBtn = document.querySelector('#sendBtn');
 const message = document.querySelector('#chatInput')
-const newConversation = document.querySelector('#newConversation');  // To input callee number
-const newParticipant = document.querySelector('#refer');  // To input callee number
-
 const chatPanel = document.querySelector('#chatPanel');
 
 HashMap = function() {
