@@ -1,6 +1,15 @@
 # ChatGPT
 
-[2023.3.1부터 ChatGPT를 위한 API](https://openai.com/blog/introducing-chatgpt-and-whisper-apis)가 공식적으로 "gpt-3.5-turbo"로 지원되고 있습니다. 이것은 ["text-davinci-003" 모델](https://github.com/kyopark2014/ChatGPT/blob/main/text-davinci-003.md) 대비 90% 낮은 비용으로 사용할 수 있지만, 채팅중에 검색과 같은 기능은 제공하지 않습니다. 여기서 구현한 Architecture는 아래와 같습니다. 사용자는 CloudFront로 Chat을 위한 Web page을 오픈합니다. 이후 채팅 메시지를 입력하면, API-Gateway와 Lambda을 통해 OpenAI의 ChatGPT API를 호출합니다. 
+[2023.3.1부터 ChatGPT를 위한 API](https://openai.com/blog/introducing-chatgpt-and-whisper-apis)가 공식적으로 "gpt-3.5-turbo"로 지원되고 있습니다. 이것은 ["text-davinci-003" 모델](https://github.com/kyopark2014/ChatGPT/blob/main/text-davinci-003.md) 대비 90% 낮은 비용으로 사용할 수 있지만, 채팅중에 검색과 같은 기능은 제공하지 않습니다. 
+
+여기서 구현한 Architecture는 아래와 같습니다. 사용자는 CloudFront로 Chat을 위한 Web page을 오픈합니다. 이후 채팅 메시지를 입력하면, API-Gateway와 Lambda을 통해 OpenAI의 ChatGPT API를 호출합니다. 
+
+1) 사용자는 CloudFront를 통해 S3에 있는 html 파일을 로드합니다. 
+2) 웹브라우저에서 ChatGPT를 향해 메시지를 전송합니다. CORS를 위해 여기서 javascropt의 destination은 CloudFront의 도메인입니다. 
+3) Chat 메시지는 "/chat" 리소스로 POST방식으로 JSON 파일을 전송하여, RESTful 방식으로 동작합니다. 
+4) API Gateway로 들어온 요청(Request)가 들어오면 Lambda로 전송합니다.
+5) Lambda는 text를 parsing하여 ChatGPT API로 요청을 수행합니다.
+6) ChatGPT의 결과가 Lambda로 전달됩니다. Lambda의 응답은 상기 라우팅을 따라 200OK 응답으로 전달됩니다. 
 
 <img width="607" alt="image" src="https://user-images.githubusercontent.com/52392004/222997842-2fe132d3-f8ba-4158-943d-27696687846b.png">
 
