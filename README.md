@@ -2,7 +2,7 @@
 
 [2023.3.1부터 ChatGPT를 위한 API](https://openai.com/blog/introducing-chatgpt-and-whisper-apis)가 공식적으로 "gpt-3.5-turbo"로 지원되고 있습니다. 이것은 ["text-davinci-003" 모델](https://github.com/kyopark2014/ChatGPT/blob/main/text-davinci-003.md) 대비 90% 낮은 비용으로 사용할 수 있지만, 채팅중에 검색과 같은 기능은 제공하지 않습니다. 
 
-여기서 구현한 Architecture는 아래와 같습니다. 사용자는 CloudFront로 Chat을 위한 Web page을 오픈합니다. 이후 채팅 메시지를 입력하면, API-Gateway와 Lambda을 통해 OpenAI의 ChatGPT API를 호출합니다. 
+여기서 구현한 Architecture는 아래와 같습니다. 사용자는 CloudFront로 Chat을 위한 Web page을 오픈합니다. 이후 채팅 메시지를 입력하면, API Gateway와 Lambda을 통해 OpenAI의 ChatGPT API를 호출합니다. 
 
 1) 사용자는 CloudFront를 통해 S3에 있는 html 파일을 로드합니다. 
 2) 웹브라우저에서 ChatGPT를 향해 메시지를 전송합니다. CORS를 위해 여기서 javascropt의 destination은 CloudFront의 도메인입니다. 
