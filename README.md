@@ -134,7 +134,7 @@ cdk deploy
 
 
 
-여기서 접속하는 Web URL은 "https://dre57i7noiw1a.cloudfront.net/chat.html" 입니다. 접속후 아래와 같인 chatting을 수행할 수 있습니다.
+Output의 Web URL을 접속하면 아래와 같이 ChatGPT와 chatting을 할 수 있습니다.
 
 #### 한국어 
 
