@@ -76,7 +76,7 @@ if (res.ok) {
 
 ```java
 function sendRequest(text) {
-    const uri = "https://dre57i7noiw1a.cloudfront.net/chat";
+    const uri = "chat";
     const xhr = new XMLHttpRequest();
 
     xhr.open("POST", uri, true);
